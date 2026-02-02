@@ -1,0 +1,650 @@
+/* Reset et variables */
+:root {
+    --font-title: 'Neue Montreal', sans-serif;
+    --font-text: 'Quicksand', sans-serif;
+    --primary: #f5f5f5;
+    --secondary: #e8e8e8;
+    --accent: #333;
+    --glass: rgba(191, 255, 188, 0.1);
+    --blur: 15px;
+    --transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+/* Polices */
+body {
+    font-family: var(--font-text);
+    background: var(--primary);
+    color: var(--accent);
+    overflow-x: hidden;
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+h1, h2, h3 {
+    font-family: var(--font-title);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Loader d'immersion */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    pointer-events: none;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.loader__text {
+    font-family: var(--font-title);
+    font-size: 4rem;
+    color: var(--accent);
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Navbar en verre */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.5rem 2rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--glass);
+    backdrop-filter: blur(var(--blur));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 0.8rem 2rem;
+    max-width: 80%;
+    margin-left: 6%;
+    margin-right: 10%;
+    animation: slideDown 1s ease-out;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.nav-link {
+    color: var(--accent);
+    text-decoration: none;
+    margin: 0 1rem;
+    transition: var(--transition);
+    position: relative;
+}
+
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.logo {
+    width: 45px;
+    height: auto;
+    margin-right: 0px;
+}
+
+
+
+/* Texte japonais vertical */
+.japanese-word {
+    position: fixed;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    color: rgba(51, 51, 51, 0.3);
+    letter-spacing: 0.2em;
+    animation: fadeInLeft 1.5s ease-out;
+}
+
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* en-tete Section */
+.en-tete {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+    background: linear-gradient(135deg, rgba(245, 245, 245, 0.9), rgba(232, 232, 232, 0.7));
+    animation: fadeIn 1.5s ease-out;
+    background-image: url('../img/BT.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.t__title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    margin-bottom: 1rem;
+    font-family: 'Dirtyline36Daysoftype2022', sans-serif;
+    background: linear-gradient(90deg, rgb(0, 0, 0), rgba(48, 83, 43, 0.753));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: trackingIn 1s ease-out;
+}
+.t__title:hover{
+    font-size: clamp(3rem, 8vw, 6rem);
+    margin-bottom: 1rem;
+    font-family: 'Saint Regular', sans-serif;
+    background: linear-gradient(90deg,rgba(0, 0, 0, 0.6),rgb(5, 74, 5));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: trackingIn 1s ease-out;
+}
+
+@keyframes trackingIn {
+    from { letter-spacing: 0.5em; opacity: 0; }
+    to { letter-spacing: -0.02em; opacity: 1; }
+}
+
+.t__subtitle {
+    font-size: 1.3rem;
+    color: rgba(51, 51, 51, 0.8);
+    font-family: 'Dirtyline36Daysoftype2022', sans-serif;
+    margin-bottom: 2rem;
+    animation: fadeIn 2s ease-out;
+}
+
+.btn {
+    padding: 1rem 2.5rem;
+    background: rgb(197, 236, 197);
+    color: var(--accent);
+    border: none;
+    border-radius: 50px;
+    font-family: var(--font-title);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    animation: fadeIn 2.5s ease-out;
+    margin-bottom: 10px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(19, 96, 21, 0.2);
+    color: white;
+    background: rgb(5, 74, 5);
+}
+
+#btnsec{
+    /*Aligner les 2 boutons en ligne*/
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Section projet*/
+
+.projects {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    animation: fadeIn 1.5s ease-in-out;
+    background-image: url('../img/B3.png');
+    background-attachment: fixed;
+    background-position:bottom;
+    background-repeat: no-repeat;
+}
+
+.projects h2 {
+    font-family: 'Dirtyline36Daysoftype2022', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color:linear-gradient(90deg, rgb(5, 74, 5), rgba(51, 51, 51, 0.6));
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.projects-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.project-card {
+    background-color: #f5f5f567;
+    overflow: hidden;
+    box-shadow:  rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /*border: 1px solid var(--secondary);*/
+    border-radius: 8px;
+    animation: fadeIn 1.5s ease-in-out; 
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgb(5, 74, 5);
+    background-color: var(--primary);
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    /* border-radius: 8px 8px 0 0;*/
+}
+.project-card img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+
+
+.project-card-content {
+    padding: 1.5rem;
+    background-color: white; /* Même fond que la carte */
+}
+
+.project-card h3 {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: var(--dark-text);
+    margin-left: 10px;
+}
+
+.project-card p {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--dark-text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.project-card p2 {
+    font-family: 'Quicksand', sans-serif;
+    color: gray;
+    font-size: 0.90rem;
+    line-height: 1.6;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+
+/* style des boutton de filtre*/
+.filter-button{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.6rem 1.2rem;
+    background: rgb(197, 236, 197);
+    color: rgb(61, 61, 61);
+    border: none;
+    border-radius: 30px;
+    font-family: var(--font-title);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    margin: 0 0.5rem 1rem 0.5rem;
+    /*Aligner au centre*/
+    display: inline-block;
+}
+.filter-btn:hover {
+    background: rgb(5, 74, 5);
+    color: white;
+}
+
+#tous{
+    background: rgb(63, 63, 63);
+    color: white;
+}
+#tous:hover {
+    background: rgb(197, 236, 197);
+    color: rgb(61, 61, 61);
+}
+
+.filter-btn.active {
+    background: rgb(5, 74, 5);
+    color: white;
+    box-shadow: 0 4px 15px rgba(5, 74, 5, 0.3);
+    transform: translateY(-2px);
+}
+/*Animation */
+html {
+    scroll-behavior: smooth;
+}
+
+/*Section about-section a propos de moi*/
+#about-section {
+    padding: 4rem 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #f5f5f5, #eaeaea);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+#about-section h2 {
+    font-family: 'Dirtyline36Daysoftype2022', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: linear-gradient(90deg, rgb(5, 74, 5), rgba(51, 51, 51, 0.6));
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.about-text {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--accent);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-text p {
+    margin-bottom: 0.6rem;
+}
+
+.about-text strong {
+    font-weight: 600;
+    color: rgb(55, 85, 55);
+    font-family: 'Dirtyline36Daysoftype2022', sans-serif;
+}
+
+.about-desc {
+    margin-top: 1rem;
+    font-style: italic;
+    opacity: 0.85;
+}
+
+#about-section img {
+    width: 200px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+#about-section img:hover {
+    transform: scale(1.05);
+}
+
+/*Section contact 
+*/
+#contact-section {
+    padding: 4rem 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    animation: fadeIn 1.5s ease-in-out;
+}
+#contact-section h2 {
+    font-family: 'Dirtyline36Daysoftype2022', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color:linear-gradient(90deg, rgb(5, 74, 5), rgba(51, 51, 51, 0.6));
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+#contact-form input,
+#contact-form textarea {
+    padding: 1rem;
+    border: 1px solid var(--secondary);
+    border-radius: 8px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border-color: rgb(5, 74, 5);
+    outline: none;
+}
+#contact-form button {
+    align-self: center;
+    padding: 1rem 2.5rem;
+    background: rgb(197, 236, 197);
+    color: var(--accent);
+    border: none;
+    border-radius: 50px;
+    font-family: var(--font-title);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+#contact-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(51, 51, 51, 0.2);
+    background: rgb(5, 74, 5);
+    color: white;
+}
+
+
+
+/*/ Footer aesthetic*/
+.footer {
+    padding: 2rem;
+    background: var(--secondary);
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+.footer img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+.footer p {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--dark-text);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+.footer a {
+    color: var(--accent);
+    text-decoration: none;
+    margin: 0 0.5rem;
+    transition: var(--transition);
+}
+
+
+
+/* Media Queries pour la responsivité */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+    .nav-link {
+        margin: 0.5rem 0;
+    }
+    .hero__title {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    .project-card img {
+        height: 200px;
+    }
+    .project-card h3 {
+        font-size: 1.2rem;
+    }
+    .project-card p {
+        font-size: 0.9rem;
+    }
+}
+/*Style du portrait chinois*/
+.portrait-chinois {
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--secondary);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+
+.portrait-chinois h2 {
+    font-family: 'Dirtyline36Daysoftype2022', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    color: var(--dark-text);
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.portrait-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.portrait-list li {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--dark-text);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 2px solid black;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.portrait-list li:hover {
+    background-color: var(--accent);
+    color: rgb(205, 255, 199);
+    transform: translateX(5px);
+}
+
+.portrait-list li::before {
+    content: "᪥ ";
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.portrait-list li:hover::before {
+    color: white;
+}
+
+
+
+
+
+
+/* Utilisation de la police Dirtyline36Daysoftype2022 */
+
+
+/* Webfont: Dirtyline36Daysoftype2022-Reg */@font-face {
+    font-family: 'Dirtyline36Daysoftype2022';
+    src: url('Dirtyline 36daysoftype 2022.eot'); /* IE9 Compat Modes */
+    src: url('Dirtyline 36daysoftype 2022.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../typo/Dirtyline-36Daysoftype-2022-01238011900/Dirtyline36Daysoftype2022/woff/Dirtyline\ 36daysoftype\ 2022.woff') format('woff'), /* Modern Browsers */
+         url('../typo/Dirtyline-36Daysoftype-2022-01238011900/Dirtyline36Daysoftype2022/woff/Dirtyline\ 36daysoftype\ 2022.woff2') format('woff2'), /* Modern Browsers */
+         url('../typo/Dirtyline-36Daysoftype-2022-01238011900/Dirtyline36Daysoftype2022/woff/Dirtyline\ 36daysoftype\ 2022.ttf') format('truetype'); /* Safari, Android, iOS */
+        font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face{
+    font-family: 'Saint Regular';
+    src : url('../typo/Saint\ Regular.ttf') format('truetype');
+        font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+
+}
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #000000 #f5f5f5;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+}
+
+  *::-webkit-scrollbar-track {
+    background: #f5f5f5;
+}
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 10px;
+    border: 3px solid #0aff54;
+}

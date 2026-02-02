@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <!-- Polices : Neue Montreal (F37) ou ABC Ginto (Dinamo) -->
+    <link href="https://fonts.cdnfonts.com/css/neue-montreal" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Animation GSAP pour les effets fluides -->
+    <link rel="preload" href="assets/typo/Dirtyline-36Daysoftype-2022-01238011900/Dirtyline36Daysoftype2022/woff/Dirtyline 36daysoftype 2022.woff2" as="font" type="font/woff2" crossorigin>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="./assets/js/script.js" defer></script>
+</head>
+<body>
+    <!-- **Loader d'immersion** -->
+    <div class="loader">
+        <div class="loader__text">さくら</div>
+    </div>
+
+    <header class="header">
+        <nav class="navbar">
+            <img class="logo" src="./assets/img/LoT.png" alt="Logo">
+            <a href="#" class="nav-link">Accueil</a>
+            <a href="#about-section" class="nav-link">À propos</a>
+            <a href="#projects-section" class="nav-link">Projets</a>
+            <a href="#section-portrait" class="nav-link">Portrait</a>
+            <a href="#contact-section" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Texte japonais animé -->
+        <section class="japanese-word">
+            <div class="vertical-text">さくら</div>
+        </section>
+
+        <!-- en-tete avec animation -->
+        <section class="en-tete">
+            <h1 class="t__title">BASTIEN BERCERON </h1>
+            <p class="t__subtitle">découvrez mon portfolio</p>
+            <section id="btnsec">
+                <button class="btn" onclick="location.href='#projects-section'">Voir mes travaux</button>
+                <button class="btn" onclick="location.href='./assets/img/CV_Bastien.pdf'"> CV </button>
+            </section>
+    </section>
+
+        <!-- Présentation -->
+        <section id="about-section">
+    <h2>à propos de moi</h2>
+
+    <div class="about-content">
+        <div class="about-text">
+            <p><strong>prénom :</strong> Bastien</p>
+            <p><strong>nom :</strong> Berceron</p>
+            <p><strong>âge :</strong> 19 ans</p>
+            <p><strong>tél :</strong> 07 78 92 87 12</p>
+            <p><strong>mail :</strong> bastienberceron@gmail.com</p>
+            <p class="about-desc">
+                Étudiant en première année de design, programmation et marketing.
+            </p>
+        </div>
+
+        <img src="./assets/img/IDP.png" alt="Photo d'identité">
+    </div>
+</section>
+
+        <!-- Section pour afficher les projets dynamiquement -->
+        <section class="projects" id="projects-section">
+            <h2>mes projets</h2>
+            <div class="filter-button">
+                <button class=" filter-btn" data-category="all" id="tous">Tous</button>
+                <button class="filter-btn" data-category="javascript">JavaScript</button>
+                <button class="filter-btn" data-category="html">HTML</button>
+                <button class="filter-btn" data-category="figma">Figma</button>
+            </div>
+            <div class="projects-grid" id="projects-grid">
+            </div>
+        </section>
+
+        <!-- Portrait chinois-->
+        <section class="portrait-chinois" id="section-portrait">
+            <h2>mon portrait chinois</h2>
+            <ul class="portrait-list">
+                <li>Si j'étais un animal, je serais un chat, détendu.</li>
+                <li>Si j'étais une couleur, je serais le vert pour sa profondeur et sa sérénité.</li>
+                <li>Si j'étais une saison, je serais le printemps pour son renouveau et sa vitalité.</li>
+                <li>Si j'étais un instrument de musique, je serais la batterie pour sa polyvalence et son dynamisme.</li>
+            </ul>
+        </section>
+    </main>
+    <!-- Contact Section -->
+    <section class="contact" id="contact-section">
+        <h2>contactez-moi</h2>
+        <form id="contact-form">
+            <input id="nom" type="text" placeholder="Votre nom" required>
+            <input id="email" type="email" placeholder="Votre email" required>
+            <textarea id="message" placeholder="Votre message" required></textarea>
+            <button id="envoyer" type="submit" class="btn">Envoyer</button>
+        </form>
+    </section>
+    <footer class="footer">
+        <img src="./assets/img/FL.png" alt="Logo Footer">
+        <!--Mettre nom réseaux sociaux-->
+        <div class="social-icons">
+            <p>
+                <a class="button-link" href="https://instagram.com/basti1_b" target="_blank">Instagram</a>
+                <a class="button-link" href="https://www.linkedin.com/in/bastien-berceron-68825928a/" target="_blank">LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
