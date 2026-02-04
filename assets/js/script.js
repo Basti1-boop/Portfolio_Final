@@ -159,7 +159,6 @@
         });
     });
 
-/*Dès qu'on clique sur l'un des boutons de filtre, celui-ci reste dans une autre couleur*/
     const filterBtn = document.querySelectorAll('.filter-button button');
     filterBtn.forEach(btn => {
         btn.addEventListener('click', () => {

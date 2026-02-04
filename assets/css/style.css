@@ -491,29 +491,111 @@ html {
 
 
 /*/ Footer aesthetic*/
-.footer {
-    padding: 2rem;
-    background: var(--secondary);
-    text-align: center;
-    animation: fadeIn 1.5s ease-in-out;
+.site-footer {
+    width: 100%;
+    background: var(--glass);
+    border-color: 2px solid rgba(255, 255, 255, 0.2);
+    color: #000000 ;
+    padding: 50px 0 30px 0 ;
+    font-family: sans-serif; 
 }
-.footer img {
-    width: 100px;
-    height: auto;
-    margin-bottom: 1rem;
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex ;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 30px;
 }
-.footer p {
-    font-family: 'Quicksand', sans-serif;
-    color: var(--dark-text);
-    font-size: 1rem;
-    margin-bottom: 1rem;
+
+/* Partie Logo */
+.brand-main {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
 }
-.footer a {
-    color: var(--accent);
+
+.f-logo {
+    height: 45px;
+    width: auto;
+    display: block;
+}
+
+.f-kanji {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+}
+
+.f-sub {
+    color: #777;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.f-socials {
+    display: flex;
+    gap: 20px;
+}
+
+.f-socials a {
+    color: #000000;
     text-decoration: none;
-    margin: 0 0.5rem;
-    transition: var(--transition);
+    font-size: 0.9rem;
+    transition: 0.3s;
+    opacity: 0.7;
 }
+
+.f-socials a:hover {
+    opacity: 1;
+}
+
+.f-legal {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #444;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.back-top {
+    background: none;
+    border: 1px solid #333;
+    color: #000000;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.back-top:hover {
+    background: #fff;
+    color: #000000;
+}
+
+/* Correction Mobile */
+@media (max-width: 768px) {
+    .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-right {
+        align-items: center;
+    }
+}
+
 
 
 
