@@ -219,12 +219,13 @@ a.button-link:hover {
 @media (max-width: 768px) {
     /* Header et navigation mobile */
     .header {
-        padding: 1rem;
+        padding: 1rem 0.5rem;
     }
 
     .navbar {
         padding: 0.8rem 1rem;
         max-width: 95%;
+        margin: 0 auto;
     }
 
     .menu-toggle {
