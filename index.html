@@ -21,11 +21,18 @@
     <header class="header">
         <nav class="navbar">
             <img class="logo" src="./assets/img/LoT.png" alt="Logo">
-            <a href="#" class="nav-link">Accueil</a>
-            <a href="#about-section" class="nav-link">À propos</a>
-            <a href="#projects-section" class="nav-link">Projets</a>
-            <a href="#section-portrait" class="nav-link">Portrait</a>
-            <a href="#contact-section" class="nav-link">Contact</a>
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="#" class="nav-link">Accueil</a>
+                <a href="#about-section" class="nav-link">À propos</a>
+                <a href="#projects-section" class="nav-link">Projets</a>
+                <a href="#section-portrait" class="nav-link">Portrait</a>
+                <a href="#contact-section" class="nav-link">Contact</a>
+            </div>
         </nav>
     </header>
 
@@ -92,12 +99,13 @@
     <!-- Contact Section -->
     <section class="contact" id="contact-section">
         <h2>contactez-moi</h2>
-        <form id="contact-form">
-            <input id="nom" type="text" placeholder="Votre nom" required>
-            <input id="email" type="email" placeholder="Votre email" required>
-            <textarea id="message" placeholder="Votre message" required></textarea>
+        <form id="contact-form" action="https://formspree.io/f/xqedbozj" method="POST">
+            <input id="nom" name="name" type="text" placeholder="Votre nom" required>
+            <input id="email" name="email" type="email" placeholder="Votre email" required>
+            <textarea id="message" name="message" placeholder="Votre message" required></textarea>
             <button id="envoyer" type="submit" class="btn">Envoyer</button>
         </form>
+        <div id="form-status" style="display: none; margin-top: 1rem; text-align: center; font-family: var(--font-text);"></div>
     </section>
     <footer class="site-footer">
     <div class="footer-inner">

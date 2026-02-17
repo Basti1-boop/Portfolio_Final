@@ -129,18 +129,30 @@
 
 /* Animations GSAP (à ajouter dans script.js) */
 
-    // Masquer le loader après 3s
-    setTimeout(() => {
-        document.querySelector('.loader').style.opacity = '0';
-        setTimeout(() => {
-            document.querySelector('.loader').style.display = 'none';
-        }, 1000);
-    }, 2000);
+    // Vérifier si c'est la première visite de la session
+    const hasVisited = sessionStorage.getItem('hasVisited');
+    const loader = document.querySelector('.loader');
 
-    // transition fluide entre l'ecran de chargement et le contenu
-    gsap.to('.loader', {opacity: 0, duration: 1, delay: 2, onComplete: () => {
-        document.querySelector('.loader').style.display = 'none';
-    }});
+    if (hasVisited) {
+        // Si déjà visité, masquer immédiatement le loader
+        loader.style.display = 'none';
+    } else {
+        // Première visite : afficher l'animation
+        sessionStorage.setItem('hasVisited', 'true');
+        
+        // Masquer le loader après 2s
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 1000);
+        }, 2000);
+
+        // transition fluide entre l'ecran de chargement et le contenu
+        gsap.to('.loader', {opacity: 0, duration: 1, delay: 2, onComplete: () => {
+            loader.style.display = 'none';
+        }});
+    }
     
 
 
@@ -167,4 +179,75 @@
         });
     });
 
+    // Menu hamburger toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Fermer le menu quand on clique sur un lien
+        const links = document.querySelectorAll('.nav-link');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+
+        // Fermer le menu quand on clique en dehors
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
+    }
+
+    // Gestion du formulaire de contact
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(contactForm);
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            
+            // Désactiver le bouton pendant l'envoi
+            submitButton.disabled = true;
+            submitButton.textContent = 'Envoi en cours...';
+            
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    formStatus.style.display = 'block';
+                    formStatus.style.color = 'green';
+                    formStatus.textContent = '✓ Message envoyé avec succès ! Je vous répondrai bientôt.';
+                    contactForm.reset();
+                } else {
+                    formStatus.style.display = 'block';
+                    formStatus.style.color = 'red';
+                    formStatus.textContent = '✗ Erreur lors de l\'envoi. Veuillez réessayer.';
+                }
+            } catch (error) {
+                formStatus.style.display = 'block';
+                formStatus.style.color = 'red';
+                formStatus.textContent = '✗ Erreur de connexion. Veuillez réessayer.';
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Envoyer';
+            }
+        });
+    }
